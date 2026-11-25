@@ -1,0 +1,1447 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panggung Belajar: Modul Seni Teater & Drama</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (Professional Vector Icons - Zero Emoji) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        editorial: {
+                            navy: '#0F172A',
+                            slate: '#1E293B',
+                            crimson: '#881337',
+                            burgundy: '#9F1239',
+                            gold: '#B45309',
+                            paper: '#F8FAFC',
+                            border: '#E2E8F0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Editorial & Academic UI Refinements */
+        .tab-active {
+            background-color: #0F172A;
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-100 selection:text-rose-900 min-h-screen flex flex-col">
+
+    <!-- Top Institutional Bar -->
+    <div class="bg-slate-950 text-slate-300 border-b border-slate-800/80 text-xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
+            <div class="flex items-center gap-2 font-medium">
+                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>SMP Negeri 10 Samarinda &bull; Mata Pelajaran Seni Budaya</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-4 text-slate-400">
+                <span class="flex items-center gap-1.5"><i data-lucide="layers" class="w-3.5 h-3.5"></i> 4 Modul Inti + Studi Kasus Lokal</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="book-open-check" class="w-3.5 h-3.5"></i> Pendalaman Materi Komprehensif</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Editorial Hero Header -->
+    <header class="bg-white border-b border-slate-200 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-4">
+                    <!-- Institutional Logos & Identity -->
+                    <div class="flex flex-wrap items-center gap-4 pb-1">
+                        <div class="flex items-center gap-2.5 bg-slate-50 border border-slate-200/90 px-3 py-2 rounded-2xl shadow-xs">
+                            <img
+                                src="https://iili.io/nBiviCX.png"
+                                alt="Logo SMP Negeri 10 Samarinda"
+                                onerror="this.onerror=null;this.src='https://placehold.co/96x96/0F172A/F8FAFC?text=SMPN+10';"
+                                class="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+                            >
+                            <div class="h-9 w-px bg-slate-200"></div>
+                            <img
+                                src="https://iili.io/ofvCizb.md.png"
+                                alt="Logo Mapel Seni Budaya SMP Negeri 10 Samarinda"
+                                onerror="this.onerror=null;this.src='https://placehold.co/96x96/881337/F8FAFC?text=Seni+Budaya';"
+                                class="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-full"
+                            >
+                        </div>
+                        <div class="space-y-1">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rose-50 border border-rose-200/80 text-rose-900 text-xs font-semibold tracking-wide uppercase">
+                                <i data-lucide="drama" class="w-3.5 h-3.5 text-rose-700"></i>
+                                <span>Bahan Ajar Digital Komprehensif</span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-bold text-slate-700">
+                                Mapel Seni Budaya &bull; SMP Negeri 10 Samarinda
+                            </p>
+                        </div>
+                    </div>
+
+                    <h1 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                        Seni Teater & Pemeranan: <span class="text-rose-800">Akting Stilistik hingga Produksi Naskah</span>
+                    </h1>
+                    <p class="text-slate-600 text-sm sm:text-base max-w-2xl leading-relaxed">
+                        Panduan belajar mendalam yang mengupas teknik akting stilistik, struktur dan langkah penulisan naskah drama, unsur pementasan serta evaluasi teater, penerapan pada teater tradisional Memanda Kutai & Sandima, dan kamus istilah.
+                    </p>
+                </div>
+
+                <!-- Student Progress Card -->
+                <div class="lg:col-span-4 bg-slate-900 text-white rounded-2xl p-5 shadow-lg border border-slate-800">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-400">
+                                <i data-lucide="trending-up" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xs font-bold uppercase tracking-wider text-slate-300">Progres Belajar Siswa</h2>
+                                <p id="progress-text" class="text-[11px] text-slate-400">0 dari 4 modul utama selesai</p>
+                            </div>
+                        </div>
+                        <span id="progress-percent" class="font-display text-2xl font-extrabold text-amber-400">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                        <div id="progress-bar" class="bg-gradient-to-r from-rose-600 to-amber-400 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>Tandai selesai di setiap modul</span>
+                        <button onclick="switchTab('materi-d')" class="text-amber-400 hover:text-amber-300 font-semibold inline-flex items-center gap-1">
+                            <span>Kamus Istilah</span>
+                            <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Navigation Bar -->
+        <nav class="bg-white/95 backdrop-blur-md border-t border-slate-200 sticky top-0 z-30 shadow-sm">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="flex items-center gap-2 py-3 overflow-x-auto no-scrollbar" role="tablist">
+                    <button onclick="switchTab('materi-a')" id="tab-materi-a" class="tab-btn tab-active flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all">
+                        <i data-lucide="drama" class="w-4 h-4"></i>
+                        <span>A. Akting Stilistik</span>
+                    </button>
+                    <button onclick="switchTab('materi-b')" id="tab-materi-b" class="tab-btn bg-slate-100 text-slate-700 hover:bg-slate-200/70 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>B. Menulis Naskah Drama</span>
+                    </button>
+                    <button onclick="switchTab('materi-c')" id="tab-materi-c" class="tab-btn bg-slate-100 text-slate-700 hover:bg-slate-200/70 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all">
+                        <i data-lucide="clapperboard" class="w-4 h-4"></i>
+                        <span>C. Seni Drama Dasar</span>
+                    </button>
+                    <button onclick="switchTab('materi-lokal')" id="tab-materi-lokal" class="tab-btn bg-slate-100 text-slate-700 hover:bg-slate-200/70 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all">
+                        <i data-lucide="landmark" class="w-4 h-4"></i>
+                        <span>Teater Tradisional: Sandima & Memanda Kutai</span>
+                    </button>
+                    <button onclick="switchTab('materi-d')" id="tab-materi-d" class="tab-btn bg-slate-100 text-slate-700 hover:bg-slate-200/70 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all">
+                        <i data-lucide="book-open" class="w-4 h-4"></i>
+                        <span>D. Ringkasan Istilah</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
+
+        <!-- ========================================== -->
+        <!-- SECTION A: AKTING STILISTIK                -->
+        <!-- ========================================== -->
+        <section id="section-materi-a" class="content-section space-y-6">
+            <!-- Header & Visual Banner -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-6 sm:p-8 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-rose-800 bg-rose-50 border border-rose-200 px-2.5 py-1 rounded-md">Materi Bagian A</span>
+                        <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Akting Stilistik</h2>
+                    </div>
+                    <button onclick="toggleComplete('A')" id="btn-complete-A" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 transition flex items-center gap-2">
+                        <i data-lucide="circle" class="w-4 h-4 text-slate-400"></i>
+                        <span>Tandai Selesai</span>
+                    </button>
+                </div>
+
+                <!-- 1. Pengertian & Relevant Visual -->
+                <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-7 space-y-4">
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">1</span>
+                            <span>Pengertian & Fungsi Utama Akting Stilistik</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <strong class="text-slate-900">Akting stilistik</strong> adalah teknik dan gaya pemeranan dalam seni teater yang menggunakan gerakan tubuh, ekspresi wajah, dan pengolahan vokal yang terolah, terukur, serta memiliki gaya tertentu (tidak menampilkan tingkah laku tokoh sama persis seperti kehidupan sehari-hari).
+                        </p>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Dalam akting stilistik, gerakan tubuh memiliki fungsi utama untuk <strong>menyampaikan makna simbolis, mempertegas watak karakter, serta menyalurkan emosi</strong> melalui gerak yang terolah secara artistik. Gerakan tangan atau tubuh yang dibuat lebih besar, terukur, dan tegas daripada gerakan sehari-hari bertujuan untuk <strong>memperjelas pesan dan karakter tokoh kepada penonton</strong> hingga ke barisan terjauh.
+                        </p>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 mt-4 space-y-3">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-2">
+                                <i data-lucide="bookmark-check" class="w-4 h-4 text-rose-700"></i>
+                                <span>Studi Kasus Penerapan Akting Stilistik Berdasarkan Karakter & Emosi:</span>
+                            </h4>
+                            <ul class="space-y-3 text-sm text-slate-700">
+                                <li class="flex items-start gap-2.5 bg-white p-3 rounded-lg border border-slate-200/80">
+                                    <i data-lucide="crown" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                                    <div>
+                                        <strong class="text-slate-900 block">Memerankan Raja yang Bijaksana & Berwibawa:</strong>
+                                        <span>Aktor menggunakan postur tubuh tegap dan anggun, gestur terukur, vokal kuat/mantap, wajah tenang, tatapan tegas, serta ekspresi penuh keyakinan saat memberikan keputusan.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2.5 bg-white p-3 rounded-lg border border-slate-200/80">
+                                    <i data-lucide="flame" class="w-4 h-4 text-rose-700 shrink-0 mt-0.5"></i>
+                                    <div>
+                                        <strong class="text-slate-900 block">Memerankan Tokoh yang Sedang Marah:</strong>
+                                        <span>Aktor memadukan pengolahan tubuh dan vokal berupa suara lantang, gerakan tangan tegas, tubuh tegak menantang, dan ekspresi wajah tajam.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2.5 bg-white p-3 rounded-lg border border-slate-200/80">
+                                    <i data-lucide="user-check" class="w-4 h-4 text-emerald-700 shrink-0 mt-0.5"></i>
+                                    <div>
+                                        <strong class="text-slate-900 block">Menunjukkan Rasa Hormat & Emosi Dramatis:</strong>
+                                        <span>Rasa hormat ditunjukkan lewat gestur menundukkan kepala, membungkukkan tubuh, dan meletakkan tangan di depan dada; kesedihan ditampilkan melalui gerakan tangan dan mimik dramatis; kemenangan diwujudkan dengan mengangkat kedua tangan tinggi-tinggi.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Relevant Visual Card -->
+                    <div class="lg:col-span-5">
+                        <figure class="rounded-xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Mamanda_Panji_Berseri_141109001.jpg?width=900"
+                                alt="Pertunjukan Memanda Panji Berseri teater tradisional Kutai dengan akting stilistik"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x540/0F172A/F8FAFC?text=Pertunjukan+Memanda+Kutai+(Akting+Stilistik)';"
+                                class="w-full h-60 object-cover opacity-95"
+                            >
+                            <figcaption class="p-4 bg-slate-900 text-slate-300 text-xs leading-relaxed border-t border-slate-800 flex items-start gap-2.5">
+                                <i data-lucide="camera" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                                <span><strong>Contoh Akting Stilistik (Memanda Kutai):</strong> Sikap tubuh tegap, gestur penuh hormat, dan ekspresi khas para pemeran kerajaan menunjukkan penerapan akting stilistik dalam teater tradisional.</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Ciri-Ciri Akting Stilistik -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-5">
+                    <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">2</span>
+                    <span>Ciri-Ciri Akting Stilistik</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
+                        <div class="w-9 h-9 rounded-lg bg-white border border-slate-200 text-rose-800 flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="move" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-sm text-slate-700 font-medium pt-1">Menggunakan gerakan tubuh yang khas.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
+                        <div class="w-9 h-9 rounded-lg bg-white border border-slate-200 text-rose-800 flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="smile" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-sm text-slate-700 font-medium pt-1">Ekspresi wajah dibuat lebih kuat atau dramatis.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
+                        <div class="w-9 h-9 rounded-lg bg-white border border-slate-200 text-rose-800 flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-sm text-slate-700 font-medium pt-1">Menggunakan gerakan yang memiliki makna simbolis.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
+                        <div class="w-9 h-9 rounded-lg bg-white border border-slate-200 text-rose-800 flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="mic" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-sm text-slate-700 font-medium pt-1">Memperhatikan suara dan pengucapan dialog.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5 sm:col-span-2 lg:col-span-2">
+                        <div class="w-9 h-9 rounded-lg bg-white border border-slate-200 text-rose-800 flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="drama" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-sm text-slate-700 font-medium pt-1">Gerakan pemain disesuaikan dengan karakter dan suasana cerita.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Unsur-Unsur Penting (Interactive Selector) -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-2">
+                    <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">3</span>
+                    <span>Unsur-Unsur Penting dalam Akting Stilistik</span>
+                </h3>
+                <p class="text-sm text-slate-500 mb-5">Ada empat unsur penting yang harus diperhatikan. Pilih setiap tab unsur di bawah ini untuk mempelajari detail dan contohnya:</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                    <button onclick="selectUnsurStilistik('ekspresi')" id="unsur-btn-ekspresi" class="unsur-btn p-4 rounded-xl border-2 border-slate-900 bg-slate-900 text-white font-semibold flex flex-col items-center justify-center gap-2 transition">
+                        <i data-lucide="smile-plus" class="w-5 h-5 text-amber-400"></i>
+                        <span class="text-sm">a. Ekspresi</span>
+                    </button>
+                    <button onclick="selectUnsurStilistik('gestur')" id="unsur-btn-gestur" class="unsur-btn p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold flex flex-col items-center justify-center gap-2 transition">
+                        <i data-lucide="hand" class="w-5 h-5 text-slate-600"></i>
+                        <span class="text-sm">b. Gestur</span>
+                    </button>
+                    <button onclick="selectUnsurStilistik('vokal')" id="unsur-btn-vokal" class="unsur-btn p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold flex flex-col items-center justify-center gap-2 transition">
+                        <i data-lucide="volume-2" class="w-5 h-5 text-slate-600"></i>
+                        <span class="text-sm">c. Vokal</span>
+                    </button>
+                    <button onclick="selectUnsurStilistik('ritme')" id="unsur-btn-ritme" class="unsur-btn p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold flex flex-col items-center justify-center gap-2 transition">
+                        <i data-lucide="activity" class="w-5 h-5 text-slate-600"></i>
+                        <span class="text-sm">d. Ritme</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Display Box -->
+                <div id="unsur-stilistik-detail" class="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 transition-all">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- 4. Perbandingan & 5. Cara Melakukan -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Perbandingan -->
+                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-4">
+                        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">4</span>
+                        <span>Perbedaan Akting Stilistik dan Akting Realis</span>
+                    </h3>
+                    <div class="overflow-hidden rounded-xl border border-slate-200">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-slate-900 text-white font-semibold">
+                                <tr>
+                                    <th class="p-3.5 border-b border-slate-800">Akting Stilistik</th>
+                                    <th class="p-3.5 border-b border-slate-800 bg-slate-800">Akting Realis</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr>
+                                    <td class="p-3.5 bg-rose-50/40 font-medium text-slate-900">Menggunakan pengolahan dan gaya tertentu yang khas</td>
+                                    <td class="p-3.5 text-slate-700">Berusaha menyerupai kehidupan nyata sehari-hari</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 bg-rose-50/40 font-medium text-slate-900">Gerakan terolah, terukur, dan dapat dilebih-lebihkan</td>
+                                    <td class="p-3.5 text-slate-700">Gerakan lebih alami dan wajar</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 bg-rose-50/40 font-medium text-slate-900">Menggunakan simbol dan makna tertentu</td>
+                                    <td class="p-3.5 text-slate-700">Mengutamakan kenyataan dan kewajaran</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 bg-rose-50/40 font-medium text-slate-900">Ekspresi dan vokal dibuat kuat serta dramatis</td>
+                                    <td class="p-3.5 text-slate-700">Ekspresi dan intonasi seperti percakapan sehari-hari</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Cara Melakukan -->
+                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-4">
+                        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">5</span>
+                        <span>Kemampuan & Prinsip Penerapan Akting Stilistik</span>
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4">Untuk menerapkan akting stilistik secara baik dan tepat sasaran, seorang aktor wajib menguasai:</p>
+                    <ul class="space-y-2.5 text-sm text-slate-700">
+                        <li class="flex items-start gap-3 p-2.5 rounded-lg bg-slate-50 border border-slate-100"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-700 shrink-0 mt-0.5"></i><span><strong>Kontrol Terpadu:</strong> Mengolah gerak, ekspresi, vokal, dan ritme secara terkontrol dan terukur.</span></li>
+                        <li class="flex items-start gap-3 p-2.5 rounded-lg bg-slate-50 border border-slate-100"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-700 shrink-0 mt-0.5"></i><span><strong>Kesesuaian Konteks:</strong> Menyesuaikan setiap gerakan, ekspresi, dan vokal dengan watak karakter serta konteks cerita (tidak boleh dilakukan secara acak atau sama untuk semua tokoh).</span></li>
+                        <li class="flex items-start gap-3 p-2.5 rounded-lg bg-slate-50 border border-slate-100"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-700 shrink-0 mt-0.5"></i><span><strong>Relasi Antartokoh:</strong> Memperhatikan hubungan dan interaksi dengan tokoh lain di atas panggung.</span></li>
+                        <li class="flex items-start gap-3 p-2.5 rounded-lg bg-slate-50 border border-slate-100"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-700 shrink-0 mt-0.5"></i><span><strong>Disiplin Latihan:</strong> Rajin berlatih olah tubuh dan olah vokal agar gaya pemeranan menyatu dengan konsep pertunjukan.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Kesimpulan Materi A -->
+            <div class="bg-slate-900 text-white rounded-2xl p-6 border border-slate-800 shadow-sm">
+                <div class="flex items-start gap-3.5">
+                    <div class="w-9 h-9 rounded-xl bg-rose-900/60 border border-rose-700/60 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <i data-lucide="bookmark" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-amber-400 text-xs uppercase tracking-wider mb-1">Kesimpulan Materi A</h4>
+                        <p class="text-sm sm:text-base leading-relaxed text-slate-200">
+                            Akting stilistik adalah gaya akting yang menonjolkan gerakan, ekspresi, vokal, dan ritme secara khas untuk memperjelas karakter serta menyampaikan pesan cerita.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION B: MENULIS NASKAH DRAMA            -->
+        <!-- ========================================== -->
+        <section id="section-materi-b" class="content-section hidden space-y-6">
+            <!-- Header Card -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-6 sm:p-8 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">Materi Bagian B</span>
+                        <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Menulis Naskah Drama</h2>
+                    </div>
+                    <button onclick="toggleComplete('B')" id="btn-complete-B" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 transition flex items-center gap-2">
+                        <i data-lucide="circle" class="w-4 h-4 text-slate-400"></i>
+                        <span>Tandai Selesai</span>
+                    </button>
+                </div>
+
+                <!-- 1. Pengertian & Visual Illustration -->
+                <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">1</span>
+                            <span>Pengertian Naskah Drama</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <strong class="text-slate-900">Naskah drama</strong> adalah karya tulis yang berisi cerita, dialog antartokoh, dan petunjuk tindakan yang digunakan sebagai pedoman dalam pertunjukan drama.
+                        </p>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Naskah drama dibuat agar pemain mengetahui cerita, dialog, dan peran yang harus dilakukan secara terstruktur di atas panggung.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-5">
+                        <figure class="rounded-xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm">
+                            <img
+                                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
+                                alt="Penulisan naskah drama dan catatan skenario"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x480/1E293B/F8FAFC?text=Ilustrasi+Penulisan+Naskah+Drama';"
+                                class="w-full h-48 object-cover opacity-95"
+                            >
+                            <figcaption class="p-3.5 bg-slate-900 text-slate-300 text-xs leading-relaxed border-t border-slate-800 flex items-start gap-2">
+                                <i data-lucide="file-edit" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                                <span><strong>Pedoman Pementasan:</strong> Naskah menjadi acuan utama sutradara, aktor, dan tim artistik dalam mewujudkan cerita.</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Unsur-Unsur Naskah Drama -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-5">
+                    <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">2</span>
+                    <span>Unsur-Unsur Naskah Drama</span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- a. Tema -->
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                            <i data-lucide="compass" class="w-4 h-4 text-amber-700"></i>
+                            <span>a. Tema</span>
+                        </h4>
+                        <p class="text-sm text-slate-600 mb-2.5">Gagasan utama atau ide pokok yang menjadi dasar sebuah cerita.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Persahabatan</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Keluarga</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Pendidikan</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Kejujuran</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Perjuangan</span>
+                        </div>
+                    </div>
+
+                    <!-- b. Tokoh -->
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                            <i data-lucide="users" class="w-4 h-4 text-amber-700"></i>
+                            <span>b. Tokoh</span>
+                        </h4>
+                        <p class="text-sm text-slate-600 mb-2">Orang atau karakter yang berperan dalam cerita drama:</p>
+                        <ul class="text-xs text-slate-700 space-y-1">
+                            <li>&bull; <strong>Tokoh utama:</strong> tokoh yang menjadi pusat cerita.</li>
+                            <li>&bull; <strong>Tokoh pendukung:</strong> tokoh yang membantu jalannya cerita.</li>
+                            <li>&bull; <strong>Tokoh antagonis:</strong> tokoh yang menimbulkan pertentangan.</li>
+                            <li>&bull; <strong>Tokoh protagonis:</strong> tokoh yang biasanya memiliki sifat baik dan menjadi pusat simpati penonton.</li>
+                        </ul>
+                    </div>
+
+                    <!-- c. Penokohan -->
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                            <i data-lucide="user-cog" class="w-4 h-4 text-amber-700"></i>
+                            <span>c. Penokohan</span>
+                        </h4>
+                        <p class="text-sm text-slate-600 mb-2.5">Cara pengarang menggambarkan watak atau sifat tokoh dalam cerita.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Baik hati</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Pemarah</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Sabar</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Jujur</span>
+                            <span class="text-xs bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium">Sombong</span>
+                        </div>
+                    </div>
+
+                    <!-- d. Alur -->
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                            <i data-lucide="git-commit-horizontal" class="w-4 h-4 text-amber-700"></i>
+                            <span>d. Alur</span>
+                        </h4>
+                        <p class="text-sm text-slate-600 mb-2">Rangkaian atau urutan peristiwa yang membentuk jalan cerita dari awal sampai akhir. Tahapannya:</p>
+                        <ol class="text-xs text-slate-700 space-y-1 list-decimal list-inside">
+                            <li><strong>Orientasi (Pengenalan):</strong> memperkenalkan tokoh, situasi, dan awal cerita.</li>
+                            <li><strong>Munculnya konflik:</strong> mulai terjadi masalah atau pertentangan.</li>
+                            <li><strong>Klimaks:</strong> masalah mencapai puncak ketegangannya.</li>
+                            <li><strong>Resolusi (Penyelesaian):</strong> masalah mulai diselesaikan hingga akhir cerita.</li>
+                        </ol>
+                    </div>
+
+                    <!-- e. Latar -->
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-700"></i>
+                            <span>e. Latar</span>
+                        </h4>
+                        <p class="text-sm text-slate-600 mb-2">Keterangan mengenai tempat, waktu, dan suasana dalam cerita.</p>
+                        <ul class="text-xs text-slate-700 space-y-1">
+                            <li>&bull; <strong>Latar tempat:</strong> sekolah, rumah, pasar.</li>
+                            <li>&bull; <strong>Latar waktu:</strong> pagi, siang, malam.</li>
+                            <li>&bull; <strong>Latar suasana:</strong> sedih, bahagia, menegangkan.</li>
+                        </ul>
+                    </div>
+
+                    <!-- f. Konflik & g. Amanat -->
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70 space-y-3">
+                        <div>
+                            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                                <i data-lucide="zap" class="w-4 h-4 text-rose-700"></i>
+                                <span>f. Konflik</span>
+                            </h4>
+                            <p class="text-xs text-slate-700">Pertentangan atau masalah yang dialami oleh tokoh dalam cerita. <em>Contoh: Dua sahabat bertengkar karena salah paham.</em></p>
+                        </div>
+                        <div class="border-t border-slate-200 pt-2.5">
+                            <h4 class="font-bold text-slate-900 mb-1 flex items-center gap-2">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-700"></i>
+                                <span>g. Amanat</span>
+                            </h4>
+                            <p class="text-xs text-slate-700">Pesan moral yang ingin disampaikan penulis kepada penonton. <em>Contoh: Saling menghargai, jangan berbohong, menjaga persahabatan, bertanggung jawab.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Bagian-Bagian dalam Naskah Drama (Interactive Script Inspector) -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-2">
+                    <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">3</span>
+                    <span>Bagian-Bagian dalam Naskah Drama</span>
+                </h3>
+                <p class="text-sm text-slate-500 mb-5">Pilih salah satu bagian struktur naskah di sebelah kiri untuk menyorot penerapannya pada kutipan naskah drama:</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+                    <div class="lg:col-span-5 space-y-2">
+                        <button onclick="highlightScriptPart('prolog')" id="script-btn-prolog" class="script-btn w-full text-left p-3.5 rounded-xl border-2 border-slate-900 bg-slate-900 text-white transition">
+                            <div class="font-bold text-sm">a. Prolog</div>
+                            <div class="text-xs text-slate-300 mt-0.5">Bagian awal drama yang berfungsi sebagai pengantar cerita dan memberikan gambaran awal kepada penonton.</div>
+                        </button>
+                        <button onclick="highlightScriptPart('petunjuk')" id="script-btn-petunjuk" class="script-btn w-full text-left p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800 transition">
+                            <div class="font-bold text-sm">e. Petunjuk Laku</div>
+                            <div class="text-xs text-slate-600 mt-0.5">Keterangan dalam naskah yang menjelaskan gerakan, ekspresi, tindakan, atau situasi panggung.</div>
+                        </button>
+                        <button onclick="highlightScriptPart('dialog')" id="script-btn-dialog" class="script-btn w-full text-left p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800 transition">
+                            <div class="font-bold text-sm">b. Dialog</div>
+                            <div class="text-xs text-slate-600 mt-0.5">Percakapan antara dua tokoh atau lebih dalam drama.</div>
+                        </button>
+                        <button onclick="highlightScriptPart('monolog')" id="script-btn-monolog" class="script-btn w-full text-left p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800 transition">
+                            <div class="font-bold text-sm">c. Monolog</div>
+                            <div class="text-xs text-slate-600 mt-0.5">Tuturan seorang tokoh yang disampaikan sendiri kepada penonton atau sebagai ungkapan pikirannya.</div>
+                        </button>
+                        <button onclick="highlightScriptPart('epilog')" id="script-btn-epilog" class="script-btn w-full text-left p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800 transition">
+                            <div class="font-bold text-sm">d. Epilog</div>
+                            <div class="text-xs text-slate-600 mt-0.5">Bagian penutup drama yang biasanya berisi kesimpulan atau pesan moral dari cerita.</div>
+                        </button>
+                    </div>
+
+                    <!-- Interactive Script Sheet -->
+                    <div class="lg:col-span-7 bg-stone-50 border border-stone-200 rounded-2xl p-5 sm:p-6 font-serif text-slate-800 space-y-4">
+                        <div class="text-center border-b border-stone-200 pb-3">
+                            <span class="text-[11px] font-sans font-bold uppercase tracking-widest text-rose-800">Contoh Cuplikan Naskah Drama</span>
+                            <h4 class="text-xl font-bold text-slate-900 mt-1">"Sahabat Sejati"</h4>
+                        </div>
+
+                        <div id="script-part-prolog" class="script-highlight p-3.5 rounded-xl bg-amber-100/80 ring-2 ring-amber-600 transition-all">
+                            <span class="text-[11px] font-sans font-bold uppercase text-amber-900 block mb-1">[PROLOG]</span>
+                            <p class="text-sm italic">"Pagi itu di halaman sekolah, matahari bersinar cerah. Namun, suasana hati Andi dan Budi sedang tidak secerah cuaca hari ini karena sebuah kesalahpahaman."</p>
+                        </div>
+
+                        <div id="script-part-petunjuk" class="script-highlight p-3.5 rounded-xl transition-all">
+                            <span class="text-[11px] font-sans font-bold uppercase text-slate-500 block mb-1">[PETUNJUK LAKU]</span>
+                            <p class="text-sm italic text-slate-600">(Andi berjalan perlahan sambil menundukkan kepala.)</p>
+                        </div>
+
+                        <div id="script-part-dialog" class="script-highlight p-3.5 rounded-xl transition-all space-y-1.5">
+                            <span class="text-[11px] font-sans font-bold uppercase text-slate-500 block mb-1">[DIALOG]</span>
+                            <p class="text-sm"><strong>Andi:</strong> "Mengapa kamu datang terlambat?"</p>
+                            <p class="text-sm"><strong>Budi:</strong> "Maaf, tadi saya membantu ibu."</p>
+                        </div>
+
+                        <div id="script-part-monolog" class="script-highlight p-3.5 rounded-xl transition-all">
+                            <span class="text-[11px] font-sans font-bold uppercase text-slate-500 block mb-1">[MONOLOG]</span>
+                            <p class="text-sm"><strong>Andi:</strong> <em>(Berbicara sendiri setelah Budi pergi)</em> "Apakah aku mampu menyelesaikan semua masalah ini?"</p>
+                        </div>
+
+                        <div id="script-part-epilog" class="script-highlight p-3.5 rounded-xl transition-all">
+                            <span class="text-[11px] font-sans font-bold uppercase text-slate-500 block mb-1">[EPILOG]</span>
+                            <p class="text-sm italic">"Akhirnya Andi dan Budi saling memaafkan. Dari kisah ini kita belajar bahwa persahabatan sejati selalu diuji oleh kejujuran dan sikap saling memaafkan."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Langkah-Langkah Menulis Naskah Drama -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-5">
+                    <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">4</span>
+                    <span>Langkah-Langkah Menulis Naskah Drama</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">1.</span> Menentukan tema dan ide cerita.</div>
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">2.</span> Menentukan tokoh dan karakternya.</div>
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">3.</span> Menentukan latar tempat, waktu, dan suasana.</div>
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">4.</span> Menyusun alur cerita.</div>
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">5.</span> Menentukan konflik atau masalah.</div>
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">6.</span> Menulis dialog antartokoh.</div>
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">7.</span> Menambahkan petunjuk laku.</div>
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm"><span class="font-bold text-rose-800">8.</span> Menentukan penyelesaian dan amanat cerita.</div>
+                </div>
+
+                <!-- Example Kerangka Box -->
+                <div class="bg-slate-900 text-white rounded-2xl p-5 sm:p-6 border border-slate-800">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3.5 flex items-center gap-2">
+                        <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                        <span>Contoh Kerangka Rancangan Naskah Drama:</span>
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 text-sm">
+                        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-xl"><span class="text-slate-400 block text-xs mb-0.5">Tema</span><strong>Persahabatan</strong></div>
+                        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-xl"><span class="text-slate-400 block text-xs mb-0.5">Judul</span><strong>Sahabat Sejati</strong></div>
+                        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-xl"><span class="text-slate-400 block text-xs mb-0.5">Tokoh</span><strong>Andi, Budi, dan Rina</strong></div>
+                        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-xl"><span class="text-slate-400 block text-xs mb-0.5">Latar</span><strong>Sekolah</strong></div>
+                        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-xl sm:col-span-2"><span class="text-slate-400 block text-xs mb-0.5">Konflik</span><strong>Andi dan Budi bertengkar karena kesalahpahaman.</strong></div>
+                        <div class="bg-rose-950/80 border border-rose-800/60 p-3.5 rounded-xl sm:col-span-3"><span class="text-amber-400 block text-xs mb-0.5">Amanat</span><strong>Kita harus saling memaafkan dan menjaga persahabatan.</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kesimpulan Materi B -->
+            <div class="bg-slate-900 text-white rounded-2xl p-6 border border-slate-800 shadow-sm">
+                <div class="flex items-start gap-3.5">
+                    <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <i data-lucide="bookmark" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-amber-400 text-xs uppercase tracking-wider mb-1">Kesimpulan Materi B</h4>
+                        <p class="text-sm sm:text-base leading-relaxed text-slate-200">
+                            Naskah drama merupakan pedoman pertunjukan yang berisi tokoh, dialog, alur, latar, konflik, dan amanat. Dalam menulis naskah, langkah pertama adalah menentukan tema dan ide cerita.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION C: SENI DRAMA DASAR                -->
+        <!-- ========================================== -->
+        <section id="section-materi-c" class="content-section hidden space-y-6">
+            <!-- Header Card -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-6 sm:p-8 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-800 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-md">Materi Bagian C</span>
+                        <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Seni Drama Dasar</h2>
+                    </div>
+                    <button onclick="toggleComplete('C')" id="btn-complete-C" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 transition flex items-center gap-2">
+                        <i data-lucide="circle" class="w-4 h-4 text-slate-400"></i>
+                        <span>Tandai Selesai</span>
+                    </button>
+                </div>
+
+                <!-- 1. Pengertian & Visual Panggung -->
+                <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-6 space-y-4">
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">1</span>
+                            <span>Pengertian Drama</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <strong class="text-slate-900">Drama</strong> adalah karya seni yang menggambarkan kehidupan manusia melalui gerak, dialog, dan peran yang dipertunjukkan di atas panggung.
+                        </p>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Drama biasanya menceritakan kehidupan sehari-hari, hubungan antarmanusia, masalah keluarga, persahabatan, dan kehidupan masyarakat.
+                        </p>
+
+                        <!-- Visual Stage Photo -->
+                        <figure class="rounded-xl overflow-hidden border border-slate-200 bg-slate-900 shadow-sm mt-4">
+                            <img
+                                src="https://id.wikipedia.org/wiki/Special:FilePath/Pertunjukan_seni_teater_tradisional_sandima_di_Samarinda.jpg?width=900"
+                                alt="Pementasan seni teater tradisional Sandima di Samarinda"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x420/0F172A/F8FAFC?text=Pementasan+Teater+Sandima+Samarinda';"
+                                class="w-full h-44 object-cover opacity-95"
+                            >
+                            <figcaption class="p-3 bg-slate-900 text-slate-300 text-xs flex items-start gap-2">
+                                <i data-lucide="spotlight" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                                <span><strong>Pementasan Teater Sandima:</strong> Kolaborasi aktor, tata busana adat, musik pengiring, dan panggung pertunjukan dalam drama tradisional.</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- 2. Unsur-Unsur Dasar Drama -->
+                    <div class="lg:col-span-6 bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-200">
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-4">
+                            <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">2</span>
+                            <span>Unsur-Unsur Dasar Drama</span>
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700">
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Tema:</strong> gagasan utama cerita.</div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Tokoh:</strong> orang atau karakter dalam cerita.</div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Penokohan:</strong> sifat atau watak tokoh.</div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Alur:</strong> urutan peristiwa cerita.</div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Latar:</strong> tempat, waktu, dan suasana.</div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Dialog:</strong> percakapan antartokoh.</div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Konflik:</strong> permasalahan dalam cerita.</div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200"><strong>Amanat:</strong> pesan moral yang disampaikan.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Orang-Orang yang Terlibat -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-5">
+                    <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">3</span>
+                    <span>Orang-Orang yang Terlibat dalam Pertunjukan Drama</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <div class="flex items-center gap-2 font-bold text-slate-900 mb-2">
+                            <i data-lucide="user-check" class="w-4 h-4 text-rose-800"></i>
+                            <span>a. Aktor</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-2.5">Orang yang memainkan atau memerankan tokoh dalam pertunjukan drama.</p>
+                        <ul class="text-xs text-slate-700 space-y-1 bg-white p-3 rounded-lg border border-slate-200">
+                            <li>&bull; Menghafalkan dialog.</li>
+                            <li>&bull; Memahami karakter tokoh.</li>
+                            <li>&bull; Menggunakan ekspresi & gerakan tubuh.</li>
+                            <li>&bull; Memerankan tokoh dengan baik.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <div class="flex items-center gap-2 font-bold text-slate-900 mb-2">
+                            <i data-lucide="megaphone" class="w-4 h-4 text-rose-800"></i>
+                            <span>b. Sutradara</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-2.5">Orang yang bertanggung jawab mengarahkan dan mengoordinasikan proses kreatif pementasan drama.</p>
+                        <ul class="text-xs text-slate-700 space-y-1 bg-white p-3 rounded-lg border border-slate-200">
+                            <li>&bull; Mengarahkan dan membimbing latihan pemain.</li>
+                            <li>&bull; Menentukan blocking dan gerakan pemain.</li>
+                            <li>&bull; Mengoordinasikan seluruh proses kreatif pementasan.</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                            <div class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                <i data-lucide="pen-tool" class="w-4 h-4 text-rose-800"></i>
+                                <span>c. Penulis Naskah</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-1">Orang yang membuat cerita dan dialog drama.</p>
+                        </div>
+                        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                            <div class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                <i data-lucide="palette" class="w-4 h-4 text-rose-800"></i>
+                                <span>d. Penata Rias</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-1">Bertugas merias wajah pemain agar sesuai dengan karakter tokoh.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70">
+                        <div class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                            <i data-lucide="shirt" class="w-4 h-4 text-rose-800"></i>
+                            <span>e. Penata Busana</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1">Bertugas menyiapkan pakaian atau kostum pemain sesuai dengan karakter dan cerita.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/70 sm:col-span-2">
+                        <div class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                            <i data-lucide="sun" class="w-4 h-4 text-rose-800"></i>
+                            <span>f. Penata Lampu</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-1">Bertugas mengatur pencahayaan panggung agar suasana pertunjukan terlihat lebih menarik.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Tempat Pertunjukan & 5. Teknik Dasar (Interactive Blocking Simulator) -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2.5 mb-2">
+                        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">4 & 5</span>
+                        <span>Tempat Pertunjukan & Teknik Dasar dalam Seni Drama</span>
+                    </h3>
+                    <p class="text-sm text-slate-600">
+                        Tempat berlangsungnya pertunjukan drama disebut <strong class="text-slate-900">panggung</strong>, yang digunakan sebagai tempat pemain menampilkan cerita kepada penonton. Berikut adalah tiga teknik dasar pemeranan:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                        <h4 class="font-bold text-slate-900">a. Olah Vokal & Artikulasi</h4>
+                        <p class="text-xs text-slate-700"><strong>Olah vokal</strong> bertujuan mengembangkan kualitas suara, kejelasan, kekuatan, dan pengendalian vokal aktor.</p>
+                        <p class="text-xs text-slate-700"><strong>Artikulasi</strong> bertujuan melatih pengucapan kata dan bunyi agar jelas serta tepat sehingga dialog mudah dipahami penonton.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                        <h4 class="font-bold text-slate-900">b. Blocking</h4>
+                        <p class="text-xs text-slate-700">Pengaturan posisi dan perpindahan pemain di atas panggung agar komposisi visual terlihat seimbang dan tidak saling menutupi.</p>
+                        <p class="text-xs bg-white p-2.5 rounded-lg border border-slate-200 text-slate-600"><strong>Contoh:</strong> Berdiri di tengah panggung, berpindah ke sebelah kanan, atau duduk di kursi sesuai adegan.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                        <h4 class="font-bold text-slate-900">c. Improvisasi</h4>
+                        <p class="text-xs text-slate-700">Kemampuan pemain menciptakan atau mengembangkan tindakan, dialog, dan respons secara spontan dalam situasi tertentu tanpa sepenuhnya bergantung pada naskah.</p>
+                        <p class="text-xs bg-white p-2.5 rounded-lg border border-slate-200 text-slate-600"><strong>Contoh:</strong> Menambahkan respons atau ucapan spontan ketika terjadi situasi tak terduga di atas panggung.</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Mini Stage Blocking Simulator -->
+                <div class="bg-slate-900 text-white rounded-2xl p-5 sm:p-6 border border-slate-800">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                        <div>
+                            <h4 class="text-sm font-bold text-amber-400 flex items-center gap-2">
+                                <i data-lucide="compass" class="w-4 h-4"></i>
+                                <span>Simulasi Interaktif: Pengaturan Blocking Panggung</span>
+                            </h4>
+                            <p class="text-xs text-slate-300 mt-0.5">Pilih posisi di bawah untuk memindahkan aktor di atas area panggung.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="moveActor('left')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-semibold transition">Kiri Panggung</button>
+                            <button onclick="moveActor('center')" class="px-3 py-1.5 bg-rose-800 hover:bg-rose-700 rounded-lg text-xs font-semibold transition">Tengah Panggung</button>
+                            <button onclick="moveActor('right')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-semibold transition">Kanan Panggung</button>
+                            <button onclick="moveActor('chair')" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-slate-950 rounded-lg text-xs font-bold transition">Duduk di Kursi</button>
+                        </div>
+                    </div>
+
+                    <!-- Stage Visual -->
+                    <div class="relative h-44 bg-gradient-to-b from-slate-800 to-slate-950 border border-slate-700 rounded-xl overflow-hidden flex items-center justify-center">
+                        <div class="absolute top-2.5 left-3.5 text-[10px] font-semibold uppercase tracking-widest text-slate-400">Area Panggung (Stage)</div>
+                        <!-- Chair Prop -->
+                        <div class="absolute right-8 bottom-6 flex flex-col items-center text-slate-400" title="Properti: Kursi">
+                            <i data-lucide="armchair" class="w-7 h-7"></i>
+                            <span class="text-[9px] uppercase mt-0.5">Kursi</span>
+                        </div>
+                        <!-- Table Prop -->
+                        <div class="absolute left-8 bottom-6 flex flex-col items-center text-slate-400" title="Properti: Meja">
+                            <i data-lucide="table" class="w-7 h-7"></i>
+                            <span class="text-[9px] uppercase mt-0.5">Meja</span>
+                        </div>
+
+                        <!-- Movable Actor -->
+                        <div id="stage-actor" class="absolute transition-all duration-500 flex flex-col items-center" style="left: 50%; transform: translateX(-50%); bottom: 22px;">
+                            <div class="w-10 h-10 rounded-full bg-rose-800/40 border-2 border-amber-400 flex items-center justify-center text-amber-300 shadow-lg">
+                                <i data-lucide="user" class="w-5 h-5"></i>
+                            </div>
+                            <span id="actor-status" class="text-[11px] bg-amber-400 text-slate-950 font-bold px-2.5 py-0.5 rounded-full mt-1.5 shadow">Tengah Panggung</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-1.5 text-[11px] text-slate-400 mt-2.5 tracking-widest uppercase">
+                        <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                        <span>Area Penonton (Audience)</span>
+                        <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Properti, 7. Tata Rias, 8. Kerja Sama -->
+            <!-- 6. Properti, 7. Tata Rias, 8. Kerja Sama & Evaluasi -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 6. Properti -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-3">
+                        <span class="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">6</span>
+                        <span>Properti dalam Drama</span>
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">Benda-benda yang digunakan aktor untuk mendukung tindakan dan kebutuhan cerita dalam pertunjukan teater:</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-700">
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg inline-flex items-center gap-1.5"><i data-lucide="table" class="w-3.5 h-3.5 text-rose-800"></i> Meja</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg inline-flex items-center gap-1.5"><i data-lucide="armchair" class="w-3.5 h-3.5 text-rose-800"></i> Kursi</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg inline-flex items-center gap-1.5"><i data-lucide="book" class="w-3.5 h-3.5 text-rose-800"></i> Buku</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg inline-flex items-center gap-1.5"><i data-lucide="briefcase" class="w-3.5 h-3.5 text-rose-800"></i> Tas</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg inline-flex items-center gap-1.5"><i data-lucide="umbrella" class="w-3.5 h-3.5 text-rose-800"></i> Payung</span>
+                        <span class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg inline-flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-rose-800"></i> Telepon</span>
+                    </div>
+                </div>
+
+                <!-- 7. Tata Rias -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-3">
+                        <span class="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">7</span>
+                        <span>Fungsi Tata Rias dalam Drama</span>
+                    </h3>
+                    <p class="text-xs text-slate-600 mb-3">Tata rias berfungsi membantu memperjelas <strong>karakter, usia, kondisi, atau penampilan tokoh</strong> yang diperankan:</p>
+                    <ul class="text-xs text-slate-700 space-y-2">
+                        <li class="flex items-start gap-2"><i data-lucide="user-cog" class="w-3.5 h-3.5 text-rose-800 shrink-0 mt-0.5"></i><span>Riasan penuaan (garis keriput & rambut memutih) untuk memperjelas usia tokoh kakek/nenek.</span></li>
+                        <li class="flex items-start gap-2"><i data-lucide="thermometer" class="w-3.5 h-3.5 text-rose-800 shrink-0 mt-0.5"></i><span>Riasan wajah pucat untuk menggambarkan kondisi tokoh yang sedang sakit atau kelelahan.</span></li>
+                        <li class="flex items-start gap-2"><i data-lucide="crown" class="w-3.5 h-3.5 text-rose-800 shrink-0 mt-0.5"></i><span>Riasan garis wajah tegas untuk memperkuat karakter tokoh raja yang berwibawa.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 8. Kerja Sama & Evaluasi Pementasan -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+                    <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-lg bg-slate-900 text-white flex items-center justify-center text-xs font-bold">8</span>
+                        <span>Kerja Sama & Evaluasi Pementasan</span>
+                    </h3>
+                    <p class="text-xs text-slate-600">Sikap kerja sama tim teater meliputi disiplin latihan, tanggung jawab, menghargai pendapat teman, saling membantu, mengikuti arahan sutradara, dan tidak egois.</p>
+                    <div class="bg-amber-50/80 border border-amber-200 rounded-xl p-3 text-xs text-slate-800">
+                        <strong class="text-amber-950 block mb-1 flex items-center gap-1.5">
+                            <i data-lucide="clipboard-check" class="w-3.5 h-3.5 text-amber-700"></i>
+                            <span>Evaluasi Pascapementasan:</span>
+                        </strong>
+                        <span>Evaluasi setelah pementasan teater dilakukan untuk mengetahui kekurangan dan kelebihan pertunjukan serta memperbaiki kualitas pementasan berikutnya.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kesimpulan Materi C -->
+            <div class="bg-slate-900 text-white rounded-2xl p-6 border border-slate-800 shadow-sm">
+                <div class="flex items-start gap-3.5">
+                    <div class="w-9 h-9 rounded-xl bg-rose-900/60 border border-rose-700/60 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <i data-lucide="bookmark" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-amber-400 text-xs uppercase tracking-wider mb-1">Kesimpulan Materi C</h4>
+                        <p class="text-sm sm:text-base leading-relaxed text-slate-200">
+                            Seni drama merupakan seni pertunjukan yang membutuhkan aktor, sutradara, naskah, panggung, properti, tata rias, kerja sama kelompok, serta evaluasi pascapementasan untuk peningkatan kualitas pertunjukan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION LOKAL: SANDIMA & MEMANDA KUTAI     -->
+        <!-- ========================================== -->
+        <section id="section-materi-lokal" class="content-section hidden space-y-6">
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-6 sm:p-8 border-b border-slate-100">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">Studi Kasus Teater Nusantara (Kalimantan Timur)</span>
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Penerapan Materi pada Teater Memanda Kutai & Sandima</h2>
+                    <p class="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
+                        Untuk memahami bagaimana unsur <strong>akting stilistik</strong>, <strong>penokohan</strong>, <strong>tata busana</strong>, dan <strong>kerja sama panggung</strong> diterapkan secara nyata, mari amati dua seni teater tradisional kebanggaan Kalimantan Timur berikut ini.
+                    </p>
+                </div>
+
+                <!-- Two Visual Case Studies Grid -->
+                <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Card 1: Memanda Kutai -->
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50/70 overflow-hidden flex flex-col">
+                        <figure class="bg-slate-900 relative">
+                            <img
+                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Mamanda_Panji_Berseri_141109001.jpg?width=900"
+                                alt="Pertunjukan Seni Teater Tradisional Memanda Kutai"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x520/0F172A/F8FAFC?text=Pertunjukan+Memanda+Kutai';"
+                                class="w-full h-64 object-cover"
+                            >
+                            <figcaption class="px-4 py-2.5 bg-slate-900/95 text-slate-300 text-[11px] border-t border-slate-800 flex items-center justify-between">
+                                <span>Dokumentasi: Pertunjukan Memanda Kutai</span>
+                                <span class="text-amber-400 font-semibold">Kutai Kartanegara</span>
+                            </figcaption>
+                        </figure>
+                        <div class="p-5 sm:p-6 space-y-4 flex-grow">
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-slate-900">1. Memanda Kutai</h3>
+                                <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+                                    <strong>Memanda Kutai</strong> adalah seni teater tradisional masyarakat Kutai yang mengisahkan kehidupan lingkungan kerajaan (Raja/Sultan, Wazir, Permaisuri, Putri, dan rakyat) dengan iringan musik tradisional seperti <em>Geduk</em>.
+                                </p>
+                            </div>
+                            <div class="bg-white rounded-xl p-4 border border-slate-200 space-y-2 text-xs text-slate-700">
+                                <div class="font-bold text-rose-800 uppercase tracking-wider">Keterkaitan dengan Materi Belajar:</div>
+                                <p class="flex items-start gap-2"><i data-lucide="drama" class="w-4 h-4 text-rose-700 shrink-0 mt-0.5"></i><span><strong>Akting Stilistik:</strong> Pemeran raja dan punggawa istana menggunakan sikap tubuh tegap, langkah berwibawa, serta vokal tegas saat berdialog maupun melantunkan syair/beladun.</span></p>
+                                <p class="flex items-start gap-2"><i data-lucide="shirt" class="w-4 h-4 text-rose-700 shrink-0 mt-0.5"></i><span><strong>Tata Busana & Rias:</strong> Menggunakan busana kebesaran adat Kutai untuk membedakan status tokoh protagonis dan antagonis secara visual.</span></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Sandima (Sandiwara Mamanda) -->
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50/70 overflow-hidden flex flex-col">
+                        <figure class="bg-slate-900 relative">
+                            <img
+                                src="https://id.wikipedia.org/wiki/Special:FilePath/Pertunjukan_seni_teater_tradisional_sandima_di_Samarinda.jpg?width=900"
+                                alt="Pertunjukan Seni Teater Tradisional Sandima di Samarinda"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x520/1E293B/F8FAFC?text=Pertunjukan+Sandima+Samarinda';"
+                                class="w-full h-64 object-cover"
+                            >
+                            <figcaption class="px-4 py-2.5 bg-slate-900/95 text-slate-300 text-[11px] border-t border-slate-800 flex items-center justify-between">
+                                <span>Dokumentasi: Pertunjukan Teater Sandima</span>
+                                <span class="text-amber-400 font-semibold">Kota Samarinda</span>
+                            </figcaption>
+                        </figure>
+                        <div class="p-5 sm:p-6 space-y-4 flex-grow">
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-slate-900">2. Sandima (Sandiwara Mamanda)</h3>
+                                <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+                                    <strong>Sandima</strong> adalah akronim dari <em>Sandiwara Mamanda</em>, seni teater tradisional khas Kota Samarinda yang memadukan unsur kesenian Kutai dan Banjar dengan kemasan dialog humoris dan isu sosial masyarakat.
+                                </p>
+                            </div>
+                            <div class="bg-white rounded-xl p-4 border border-slate-200 space-y-2 text-xs text-slate-700">
+                                <div class="font-bold text-rose-800 uppercase tracking-wider">Keterkaitan dengan Materi Belajar:</div>
+                                <p class="flex items-start gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-rose-700 shrink-0 mt-0.5"></i><span><strong>Improvisasi & Interaksi:</strong> Pemain Sandima sangat mengandalkan teknik improvisasi dialog spontan serta interaksi langsung dengan penonton.</span></p>
+                                <p class="flex items-start gap-2"><i data-lucide="users" class="w-4 h-4 text-rose-700 shrink-0 mt-0.5"></i><span><strong>Kerja Sama & Musik Pengiring:</strong> Diiringi musik <em>Salating</em> (Samarinda Lagu Tingkilan) yang menyelaraskan ritme gerak dan suasana adegan.</span></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION D: KAMUS ISTILAH (FLASHCARDS)      -->
+        <!-- ========================================== -->
+        <section id="section-materi-d" class="content-section hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-5">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-md">Materi Bagian D</span>
+                        <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Ringkasan Istilah Penting untuk Dihafalkan</h2>
+                        <p class="text-sm text-slate-500 mt-1">28 istilah utama yang sering muncul dalam evaluasi seni teater & drama. Klik kartu untuk membalik atau gunakan tampilan tabel.</p>
+                    </div>
+                    <button onclick="toggleComplete('D')" id="btn-complete-D" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 transition flex items-center gap-2">
+                        <i data-lucide="circle" class="w-4 h-4 text-slate-400"></i>
+                        <span>Tandai Selesai</span>
+                    </button>
+                </div>
+
+                <!-- Search & View Mode Controls -->
+                <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                    <div class="relative flex-grow">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="glossary-search" oninput="filterGlossary()" placeholder="Cari istilah (misal: Blocking, Prolog, Gestur)..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent">
+                    </div>
+                    <div class="flex rounded-xl bg-slate-100 p-1 shrink-0 border border-slate-200">
+                        <button onclick="setGlossaryView('cards')" id="view-cards-btn" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs transition inline-flex items-center gap-1.5">
+                            <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                            <span>Kartu Hafalan</span>
+                        </button>
+                        <button onclick="setGlossaryView('table')" id="view-table-btn" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition inline-flex items-center gap-1.5">
+                            <i data-lucide="list" class="w-3.5 h-3.5"></i>
+                            <span>Tabel Ringkas</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Flashcards Grid -->
+                <div id="glossary-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Table View -->
+                <div id="glossary-table-container" class="hidden overflow-hidden rounded-xl border border-slate-200">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-slate-900 text-white font-semibold">
+                            <tr>
+                                <th class="p-3.5 w-1/3">Istilah</th>
+                                <th class="p-3.5">Pengertian Singkat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="glossary-table-body" class="divide-y divide-slate-200">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-6 text-xs border-t border-slate-800 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+                <img
+                    src="https://iili.io/nBiviCX.png"
+                    alt="Logo SMP Negeri 10 Samarinda"
+                    onerror="this.style.display='none'"
+                    class="w-7 h-7 object-contain"
+                >
+                <img
+                    src="https://iili.io/ofvCizb.md.png"
+                    alt="Logo Mapel Seni Budaya SMP Negeri 10 Samarinda"
+                    onerror="this.style.display='none'"
+                    class="w-7 h-7 object-contain rounded-full"
+                >
+                <p>Modul Pembelajaran Interaktif Seni Budaya &bull; <strong class="text-slate-200">SMP Negeri 10 Samarinda</strong></p>
+            </div>
+            <p class="text-slate-500">Akting Stilistik &bull; Penulisan Naskah &bull; Seni Drama Dasar</p>
+        </div>
+    </footer>
+
+    <!-- Application JavaScript -->
+    <script>
+        // --- 1. DATA MATERI ---
+        const unsurStilistikData = {
+            ekspresi: {
+                title: "a. Ekspresi",
+                desc: "Ekspresi adalah perubahan wajah yang menunjukkan perasaan atau emosi seseorang secara kuat dan jelas kepada penonton.",
+                examples: [
+                    { icon: "smile", text: "Tersenyum menunjukkan kebahagiaan." },
+                    { icon: "angry", text: "Cemberut menunjukkan kekesalan." },
+                    { icon: "frown", text: "Menangis menunjukkan kesedihan." },
+                    { icon: "alert-circle", text: "Mata melotot dan tatapan tajam menunjukkan keterkejutan atau kemarahan." },
+                    { icon: "shield", text: "Wajah tenang, tatapan tegas, dan ekspresi penuh keyakinan menunjukkan kewibawaan seorang raja." }
+                ]
+            },
+            gestur: {
+                title: "b. Gestur",
+                desc: "Gestur adalah gerakan tubuh atau bagian tubuh yang terolah dan memiliki makna simbolis tertentu dalam pertunjukan teater.",
+                examples: [
+                    { icon: "check", text: "Menganggukkan kepala berarti setuju." },
+                    { icon: "x", text: "Menggelengkan kepala berarti tidak setuju." },
+                    { icon: "hand", text: "Mengangkat kedua tangan tinggi-tinggi dapat menunjukkan kemenangan." },
+                    { icon: "user-check", text: "Menundukkan kepala, membungkukkan tubuh, dan meletakkan tangan di depan dada menunjukkan rasa hormat." }
+                ]
+            },
+            vokal: {
+                title: "c. Vokal",
+                desc: "Vokal adalah kemampuan mengolah dan menggunakan suara saat berbicara atau berdialog dalam pertunjukan. Pengolahan vokal berfungsi memperjelas karakter, emosi, dan pesan cerita melalui suara.",
+                examples: [
+                    { icon: "volume-2", text: "Suara keras dan lantang untuk menunjukkan kemarahan." },
+                    { icon: "volume-1", text: "Suara lembut untuk menunjukkan kasih sayang." },
+                    { icon: "mic", text: "Suara tegas dan berwibawa untuk tokoh pemimpin atau raja." }
+                ]
+            },
+            ritme: {
+                title: "d. Ritme",
+                desc: "Ritme berkaitan dengan tempo, kecepatan, dan pola waktu (cepat atau lambatnya) dalam gerakan, ucapan, serta tindakan pemain di atas panggung.",
+                examples: [
+                    { icon: "fast-forward", text: "Gerakan dan ucapan cepat untuk menunjukkan kepanikan atau ketegangan mendadak." },
+                    { icon: "clock", text: "Gerakan dan tempo lambat untuk menunjukkan kesedihan mendalam atau suasana khidmat." }
+                ]
+            }
+        };
+
+        const glossaryList = [
+            { term: "Akting stilistik", def: "Gaya pemeranan yang menggunakan gerakan, ekspresi, dan vokal yang terolah serta bergaya khas" },
+            { term: "Ekspresi", def: "Perubahan mimik wajah yang menunjukkan perasaan atau emosi tokoh" },
+            { term: "Gestur", def: "Gerakan tubuh atau bagian tubuh yang menyampaikan makna tertentu" },
+            { term: "Vokal", def: "Pengolahan suara dalam dialog untuk memperjelas karakter, emosi, dan pesan" },
+            { term: "Ritme", def: "Tempo, kecepatan, dan pola waktu dalam gerak serta dialog" },
+            { term: "Naskah drama", def: "Karya tulis berisi cerita, dialog, dan petunjuk laku untuk dipentaskan" },
+            { term: "Tema", def: "Gagasan utama atau ide pokok yang menjadi dasar cerita" },
+            { term: "Tokoh", def: "Orang atau karakter yang berperan dalam cerita drama" },
+            { term: "Penokohan", def: "Watak, sifat, dan kepribadian tokoh dalam cerita" },
+            { term: "Alur", def: "Rangkaian atau urutan peristiwa yang membentuk jalan cerita" },
+            { term: "Orientasi", def: "Tahap awal alur yang memperkenalkan tokoh, situasi, dan awal cerita" },
+            { term: "Latar", def: "Tempat, waktu, dan suasana/keadaan yang melingkupi peristiwa cerita" },
+            { term: "Konflik", def: "Permasalahan atau pertentangan yang mendorong perkembangan cerita" },
+            { term: "Amanat", def: "Pesan moral atau nilai yang ingin disampaikan melalui cerita" },
+            { term: "Dialog", def: "Percakapan antara dua tokoh atau lebih dalam drama" },
+            { term: "Monolog", def: "Tuturan seorang tokoh sendiri kepada penonton atau ungkapan pikirannya" },
+            { term: "Prolog", def: "Bagian awal drama sebagai pengantar cerita dan gambaran awal bagi penonton" },
+            { term: "Epilog", def: "Bagian penutup cerita yang berisi kesimpulan atau pesan moral" },
+            { term: "Petunjuk laku", def: "Keterangan gerakan, ekspresi, tindakan, atau situasi panggung dalam naskah" },
+            { term: "Aktor", def: "Pemain yang memerankan tokoh dalam pertunjukan drama" },
+            { term: "Sutradara", def: "Pengarah dan koordinator proses kreatif pementasan drama" },
+            { term: "Artikulasi", def: "Latihan dan kejelasan pengucapan kata serta bunyi agar tepat" },
+            { term: "Blocking", def: "Pengaturan posisi dan perpindahan pemain di atas panggung" },
+            { term: "Improvisasi", def: "Kemampuan menciptakan tindakan, dialog, dan respons secara spontan" },
+            { term: "Tata rias", def: "Riasan untuk memperjelas karakter, usia, kondisi, atau penampilan tokoh" },
+            { term: "Properti", def: "Benda-benda pendukung tindakan aktor dan kebutuhan cerita di panggung" },
+            { term: "Panggung", def: "Tempat berlangsungnya pertunjukan teater/drama" },
+            { term: "Evaluasi pementasan", def: "Penilaian pascapertunjukan untuk mengetahui kekurangan dan kelebihan demi perbaikan" }
+        ];
+
+        // --- 2. STATE MANAGEMENT ---
+        let completedSections = { A: false, B: false, C: false, D: false };
+
+        // --- 3. TAB NAVIGATION ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
+            const targetSection = document.getElementById('section-' + tabId);
+            if (targetSection) targetSection.classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('tab-active');
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- 4. PROGRESS TRACKER ---
+        function toggleComplete(sectionKey) {
+            completedSections[sectionKey] = !completedSections[sectionKey];
+            const btn = document.getElementById('btn-complete-' + sectionKey);
+            if (!btn) return;
+
+            if (completedSections[sectionKey]) {
+                btn.classList.remove('border-slate-300', 'text-slate-700', 'hover:bg-slate-50');
+                btn.classList.add('bg-emerald-700', 'border-emerald-700', 'text-white');
+                btn.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4"></i><span>Selesai Dipelajari</span>';
+            } else {
+                btn.classList.add('border-slate-300', 'text-slate-700', 'hover:bg-slate-50');
+                btn.classList.remove('bg-emerald-700', 'border-emerald-700', 'text-white');
+                btn.innerHTML = '<i data-lucide="circle" class="w-4 h-4 text-slate-400"></i><span>Tandai Selesai</span>';
+            }
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const total = 4;
+            const done = Object.values(completedSections).filter(Boolean).length;
+            const percent = Math.round((done / total) * 100);
+
+            document.getElementById('progress-percent').textContent = percent + '%';
+            document.getElementById('progress-bar').style.width = percent + '%';
+            document.getElementById('progress-text').textContent = `${done} dari ${total} modul utama selesai`;
+        }
+
+        // --- 5. INTERACTIVE UNSUR STILISTIK ---
+        function selectUnsurStilistik(key) {
+            document.querySelectorAll('.unsur-btn').forEach(btn => {
+                btn.classList.remove('border-2', 'border-slate-900', 'bg-slate-900', 'text-white');
+                btn.classList.add('border', 'border-slate-200', 'bg-slate-50', 'text-slate-700');
+                const icon = btn.querySelector('svg, i');
+                if (icon) {
+                    icon.classList.remove('text-amber-400');
+                    icon.classList.add('text-slate-600');
+                }
+            });
+
+            const activeBtn = document.getElementById('unsur-btn-' + key);
+            if (activeBtn) {
+                activeBtn.classList.remove('border', 'border-slate-200', 'bg-slate-50', 'text-slate-700');
+                activeBtn.classList.add('border-2', 'border-slate-900', 'bg-slate-900', 'text-white');
+                const activeIcon = activeBtn.querySelector('svg, i');
+                if (activeIcon) {
+                    activeIcon.classList.remove('text-slate-600');
+                    activeIcon.classList.add('text-amber-400');
+                }
+            }
+
+            const data = unsurStilistikData[key];
+            const detailBox = document.getElementById('unsur-stilistik-detail');
+            if (data && detailBox) {
+                detailBox.innerHTML = `
+                    <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-1.5">${data.title}</h4>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">${data.desc}</p>
+                    <div class="bg-white border border-slate-200 rounded-xl p-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-rose-800 block mb-2.5">Contoh Penerapan:</span>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            ${data.examples.map(ex => `
+                                <li class="flex items-center gap-2.5">
+                                    <i data-lucide="${ex.icon}" class="w-4 h-4 text-rose-700 shrink-0"></i>
+                                    <span>${ex.text}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+
+        // --- 6. INTERACTIVE SCRIPT INSPECTOR ---
+        function highlightScriptPart(part) {
+            document.querySelectorAll('.script-btn').forEach(btn => {
+                btn.classList.remove('border-2', 'border-slate-900', 'bg-slate-900', 'text-white');
+                btn.classList.add('border', 'border-slate-200', 'bg-slate-50', 'text-slate-800');
+                const sub = btn.querySelector('div:last-child');
+                if (sub) {
+                    sub.classList.remove('text-slate-300');
+                    sub.classList.add('text-slate-600');
+                }
+            });
+
+            const activeBtn = document.getElementById('script-btn-' + part);
+            if (activeBtn) {
+                activeBtn.classList.remove('border', 'border-slate-200', 'bg-slate-50', 'text-slate-800');
+                activeBtn.classList.add('border-2', 'border-slate-900', 'bg-slate-900', 'text-white');
+                const activeSub = activeBtn.querySelector('div:last-child');
+                if (activeSub) {
+                    activeSub.classList.remove('text-slate-600');
+                    activeSub.classList.add('text-slate-300');
+                }
+            }
+
+            document.querySelectorAll('.script-highlight').forEach(el => {
+                el.classList.remove('bg-amber-100/80', 'ring-2', 'ring-amber-600');
+            });
+            const targetEl = document.getElementById('script-part-' + part);
+            if (targetEl) {
+                targetEl.classList.add('bg-amber-100/80', 'ring-2', 'ring-amber-600');
+            }
+        }
+
+        // --- 7. INTERACTIVE STAGE BLOCKING ---
+        function moveActor(position) {
+            const actor = document.getElementById('stage-actor');
+            const status = document.getElementById('actor-status');
+            if (!actor || !status) return;
+
+            if (position === 'left') {
+                actor.style.left = '24%';
+                actor.style.transform = 'translateX(-50%)';
+                actor.style.bottom = '22px';
+                status.textContent = 'Kiri Panggung';
+            } else if (position === 'center') {
+                actor.style.left = '50%';
+                actor.style.transform = 'translateX(-50%)';
+                actor.style.bottom = '22px';
+                status.textContent = 'Tengah Panggung';
+            } else if (position === 'right') {
+                actor.style.left = '74%';
+                actor.style.transform = 'translateX(-50%)';
+                actor.style.bottom = '22px';
+                status.textContent = 'Kanan Panggung';
+            } else if (position === 'chair') {
+                actor.style.left = 'calc(100% - 46px)';
+                actor.style.transform = 'translateX(-50%)';
+                actor.style.bottom = '38px';
+                status.textContent = 'Duduk di Kursi';
+            }
+        }
+
+        // --- 8. GLOSSARY & FLASHCARDS ---
+        function renderGlossary(items) {
+            const cardsContainer = document.getElementById('glossary-cards-container');
+            const tableBody = document.getElementById('glossary-table-body');
+            if (!cardsContainer || !tableBody) return;
+
+            if (items.length === 0) {
+                cardsContainer.innerHTML = `
+                    <div class="col-span-full text-center py-8 text-sm text-slate-500 bg-slate-50 rounded-xl border border-slate-200">
+                        Istilah tidak ditemukan. Coba kata kunci pencarian yang lain.
+                    </div>
+                `;
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="2" class="p-6 text-center text-sm text-slate-500">Istilah tidak ditemukan.</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            cardsContainer.innerHTML = items.map((item, idx) => `
+                <div onclick="this.classList.toggle('flipped')" class="flip-card h-36 cursor-pointer select-none">
+                    <div class="flip-card-inner relative w-full h-full">
+                        <!-- Front -->
+                        <div class="flip-card-front absolute inset-0 bg-slate-900 text-white rounded-2xl p-5 flex flex-col items-center justify-center text-center shadow-xs border border-slate-800">
+                            <span class="text-[10px] uppercase tracking-widest text-amber-400 font-bold mb-1">Istilah #${idx + 1}</span>
+                            <h4 class="font-display text-base sm:text-lg font-bold">${item.term}</h4>
+                            <span class="text-[11px] text-slate-400 mt-2 inline-flex items-center gap-1">
+                                <span>Klik untuk membalik</span>
+                                <i data-lucide="rotate-cw" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back absolute inset-0 bg-stone-50 text-slate-900 rounded-2xl p-5 flex flex-col items-center justify-center text-center shadow-xs border-2 border-slate-900">
+                            <span class="text-[10px] uppercase tracking-widest text-rose-800 font-bold mb-1">${item.term}</span>
+                            <p class="text-sm font-semibold leading-snug">${item.def}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            tableBody.innerHTML = items.map(item => `
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3.5 font-bold text-slate-900">${item.term}</td>
+                    <td class="p-3.5 text-slate-700">${item.def}</td>
+                </tr>
+            `).join('');
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function filterGlossary() {
+            const query = document.getElementById('glossary-search').value.toLowerCase();
+            const filtered = glossaryList.filter(item =>
+                item.term.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)
+            );
+            renderGlossary(filtered);
+        }
+
+        function setGlossaryView(view) {
+            const cardsContainer = document.getElementById('glossary-cards-container');
+            const tableContainer = document.getElementById('glossary-table-container');
+            const cardsBtn = document.getElementById('view-cards-btn');
+            const tableBtn = document.getElementById('view-table-btn');
+
+            if (view === 'cards') {
+                cardsContainer.classList.remove('hidden');
+                tableContainer.classList.add('hidden');
+                cardsBtn.classList.add('bg-white', 'text-slate-900', 'shadow-xs');
+                cardsBtn.classList.remove('text-slate-600');
+                tableBtn.classList.remove('bg-white', 'text-slate-900', 'shadow-xs');
+                tableBtn.classList.add('text-slate-600');
+            } else {
+                cardsContainer.classList.add('hidden');
+                tableContainer.classList.remove('hidden');
+                tableBtn.classList.add('bg-white', 'text-slate-900', 'shadow-xs');
+                tableBtn.classList.remove('text-slate-600');
+                cardsBtn.classList.remove('bg-white', 'text-slate-900', 'shadow-xs');
+                cardsBtn.classList.add('text-slate-600');
+            }
+        }
+
+        // --- INITIALIZE ON LOAD ---
+        window.onload = function() {
+            selectUnsurStilistik('ekspresi');
+            renderGlossary(glossaryList);
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
+```
